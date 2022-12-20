@@ -1,28 +1,153 @@
+
 #root {
   max-width: 1280px;
-  // margin: 0 auto;
-  // padding: 2rem;
-  // text-align: center;
+ 
 }
-.form-container{
-    min-width:320px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    height: 50%;
-    h2{
-      height: 60px;
-      border-bottom:solid 1.5px #1976D2;
-    }
-  .form-task{
+
+.form-container {
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  height: 50%;
+
+  h2 {
+    height: 60px;
+    border-bottom: solid 1.5px #1976D2;
+  }
+
+  .form-task {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    width:80%;
+    width: 80%;
     height: 500px;
   }
-  
+
 }
+
+.pending{
+  background:var(--pending);
+  @media (min-width:480px) {
+    background:inherit;
+  }
+}
+
+.done{
+  background:var(--done);
+  @media (min-width:480px) {
+    background:inherit;
+  }
+}
+//ONLY MOBILE
+.color-status {
+ 
+  width: 10px;
+  height: 100%;
+
+}
+
+.task-container {
+  width: 95%;
+  margin: 0 auto ;
+  max-width: 700px;
+  font-size: small;
+  margin-bottom: 10px;
+  border-radius: 50;
+  cursor: pointer;
+
+  .border-pending{
+    border-bottom:solid 5px  var(--pending);
+    @media (max-width:480px) {
+      border-bottom:none;
+    }
+  }
+  .border-done{
+    border-bottom: solid 5px var(--done);
+    @media (max-width:480px) {
+      border-bottom:none;
+    }
+  }
+
+  .icon-pending{
+    color:rgb(253, 199, 83);
+  }
+  .icon-done{
+    color:var(--done)
+  }
+
+  .header-container {
+    text-transform: capitalize;
+    display: grid;
+    grid-template-columns: 0.1fr 6fr 1fr;
+    align-items: center;
+    justify-items: center;
+    font-size: small;
+    font-weight: bold;
+    
+
+    .color-status {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      width: 10px;
+      height: 100%;
+      @media (min-width:48/0px) {
+      background-color: inherit;
+      width: 100%;
+      }
+    }
+
+    @media (min-width:480px) {
+      height:2rem;
+      margin:0px;
+      grid-template-columns: 1fr 6fr 1fr;
+      align-items: center;
+      justify-items: center;
+    }
+  
+    .menu-desktop {
+      @media (min-width:480px) {
+       
+
+      }
+    }
+
+  }
+
+  .description-task {
+    padding: 10px;
+    padding: 10px;
+    display: none;
+
+    //TABLET AND DESKTOP FORMAT
+    @media (min-width:480px) {
+      width: 90%;
+      margin: 0 auto;
+
+      display: inherit;
+    }
+
+  }
+
+  //TABLET AND DESKTOP FORMAT
+  @media (min-width:480px) {
+    width: 17rem;
+    height: 6rem;
+    display: inherit;
+  }
+}
+
+
+.color-pending{
+  color: var(--pending);
+}
+
+.color-done{
+  color: var(--done);
+}
+

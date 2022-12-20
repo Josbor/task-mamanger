@@ -13,7 +13,7 @@ const useModal = () => {
     setModal(false)
   }
 
- const ModalComponent=({Component})=>{
+ const ModalComponent=({Component,propsComponent={}})=>{
     return(
         <>
 
@@ -24,7 +24,7 @@ const useModal = () => {
             aria-describedby="modal-modal-description"
             style={{display:'flex',alignItems:'center',justifyContent:'center'}}
             >
-          {Component?<><Component setModal={setModal}/></>: <p>missing a component</p>}
+          {Component?<><Component setModal={setModal} data={propsComponent}/></>: <p>missing a component</p>}
          
         </Modal>
           </>

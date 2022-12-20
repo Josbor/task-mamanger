@@ -2,7 +2,7 @@ import axios from "axios";
 import config from './configApi.json'
 
 const url =axios.create(
-    {baseURL:"http://127.0.0.1:8000/api"}
+    {baseURL:"http://127.0.0.1:8000/api/"}
 )
 
 
@@ -26,5 +26,28 @@ export const addTask= async (name,description,completed=false)=>{
     const result= await response;
     if (result.status!==200) throw result;
     return result.data;
+   
+}
+
+export const editTask= async (id,name,description,completed=false)=>{
+   
+    const response= await url.put(`tareas/${id}`,{
+        name,
+        description,
+        completed
+    }) 
+    const result= await response;
+    if (result.status!==200) throw result;
+    return result.data;
+   
+}
+
+
+export const deleteTask= async (id)=>{
+   
+    const response= await url.delete(`tareas/${id}`) 
+    const result= await response;
+    if (result.status!==200) throw result;
+    return result;
    
 }

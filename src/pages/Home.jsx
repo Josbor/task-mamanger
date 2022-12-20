@@ -1,13 +1,13 @@
 import {useEffect, useId, useState } from 'react'
 import useStoreControl from '../hooks/useStoreControl'
 import Task from '../components/Task'
-import { Fab } from '@mui/material'
+import { Fab, Tooltip } from '@mui/material'
 import AddIcon from '@mui/icons-material/Add';
 import useModal from '../hooks/useModal';
 import Formulario from '../components/formulario';
 
 const Home = () => {
-    const {tareas,getTask}=useStoreControl()
+    const {tasksList,getTask}=useStoreControl()
     const [setModal,Modal]=useModal()
 
     useEffect(() => {
@@ -22,10 +22,11 @@ const Home = () => {
     return (
         
     <div className="App">
-    {tareas&&tareas.map(e=>
+    {tasksList&&tasksList.map(e=>
       <Task key={e.id} data={e}/>
       
       )}
+       <Tooltip title='crear nueva Tarea'>
 
         <Fab color="primary"
         aria-label="add"
@@ -34,6 +35,7 @@ const Home = () => {
         onClick={handleAddtask}>
         <AddIcon />
       </Fab>  
+          </Tooltip>
       <Modal Component={Formulario}/>
 </div>
   )
