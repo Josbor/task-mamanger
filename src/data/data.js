@@ -7,14 +7,24 @@ const url =axios.create(
 
 
 export const getAllTask= async ()=>{
-    try   { 
+ 
     const response= await url.get('tareas') 
     const result= await response;
     if (result.status!==200) throw result;
     return result.data;
-    }catch (error){
-        console.log(error)
-        throw error
+  
+  
+}
 
-    } 
+export const addTask= async (name,description,completed=false)=>{
+   
+    const response= await url.post('tareas',{
+        name,
+        description,
+        completed
+    }) 
+    const result= await response;
+    if (result.status!==200) throw result;
+    return result.data;
+   
 }

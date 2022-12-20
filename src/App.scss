@@ -1,0 +1,28 @@
+#root {
+  max-width: 1280px;
+  // margin: 0 auto;
+  // padding: 2rem;
+  // text-align: center;
+}
+.form-container{
+    min-width:320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    height: 50%;
+    h2{
+      height: 60px;
+      border-bottom:solid 1.5px #1976D2;
+    }
+  .form-task{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width:80%;
+    height: 500px;
+  }
+  
+}
