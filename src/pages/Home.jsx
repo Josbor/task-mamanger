@@ -5,10 +5,13 @@ import { Fab, Tooltip } from '@mui/material'
 import AddIcon from '@mui/icons-material/Add';
 import useModal from '../hooks/useModal';
 import Formulario from '../components/formulario';
+import FilterTask from '../hooks/FilterTask';
+
 
 const Home = () => {
     const {tasksList,getTask}=useStoreControl()
     const [setModal,Modal]=useModal()
+    const [dataFiltered,setDataFiltered]=useState([])
 
     useEffect(() => {
       getTask()
@@ -22,15 +25,20 @@ const Home = () => {
     return (
         
     <div className="App">
-    {tasksList&&tasksList.map(e=>
-      <Task key={e.id} data={e}/>
-      
-      )}
-       <Tooltip title='crear nueva Tarea'>
+          <FilterTask tasks={tasksList} setDataFiltered={setDataFiltered} dataFiltered={dataFiltered}/>
+        
+        <div className='container-tasks'>
 
+          {dataFiltered.length>0 && dataFiltered.map(e =>
+            <Task key={e.id} data={e} />
+
+          )}
+        </div>
+       <Tooltip title='crear nueva Tarea'>
+      
         <Fab color="primary"
         aria-label="add"
-        sx={{ position: 'absolute', bottom: { xs: 15, sm: 25, md: 35, lg: 45, xl: 55 }, right: { xs: 15, sm: 25, md: 35, lg: 45, xl: 55 } }}
+        sx={{ position: 'fixed', bottom: { xs: 15, sm: 25, md: 35, lg: 45, xl: 55 }, right: { xs: 15, sm: 25, md: 35, lg: 45, xl: 55 } }}
         size='large'
         onClick={handleAddtask}>
         <AddIcon />

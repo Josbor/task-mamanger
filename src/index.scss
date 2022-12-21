@@ -5,9 +5,11 @@
   font-weight: 400;
 
   --background:#f1f1f1;
+
+  --backgroundPanels:white;
   --color:rgb(49, 49, 49);
   --done:rgb(105, 212, 105);
-  --pending:rgb(255, 140, 140);
+  --pending:rgb(255, 209, 123);
   color-scheme: light dark;
   color: var(--color);
   background-color: var(--background)
