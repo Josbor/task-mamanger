@@ -162,7 +162,7 @@ const Task = ({ data }) => {
           </div>
           
         </div>
-        <div className='description-task'>{data.description}</div>
+        <div className='description-task'>{data.description.length>70?data.description.slice(1,70)+'...':data.description}</div>
 
       </Box>
       <ModalTask Component={TypeAction=='form'?Formulario:TaskInfo} propsComponent={data}></ModalTask>
