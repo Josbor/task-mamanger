@@ -98,7 +98,8 @@ const FilterTask = ({ tasks, setDataFiltered }) => {
     <div>
       <Box className='filter-container'>
 
-       
+       <div className='container-fields'>
+
           <TextField
             fullWidth
             className='textField-Task'
@@ -107,12 +108,34 @@ const FilterTask = ({ tasks, setDataFiltered }) => {
             value={textField}
             variant='outlined' 
             onChange={e => handleTextField(e.target.value)}
-            sx={{ minWidth: 200 }}
+            sx={{ minWidth: 100,
+              color:'white',
+              '& *': {
+                color:'#fff !important',
+                borderColor:'#fff  !important'
+              },
+              '& *:hover':{
+                color:'#fff !important',
+                borderColor:'#fff'
+              } }}
 
           />
         
         
-          <FormControl className='filter-field' sx={{color:'white'}} variant='outlined' >
+          <FormControl 
+          className='filter-field'
+           sx={{
+            color:'white',
+            '& *': {
+              color:'#fff !important',
+              borderColor:'#fff  !important'
+            },
+            '& *:hover':{
+              color:'#fff !important',
+              borderColor:'#fff'
+            }
+          }}
+            variant='outlined' >
             <InputLabel id="demo-simple-select-label">Filtrar por</InputLabel>
             <Select
               labelId="demo-simple-select-label"
@@ -121,7 +144,7 @@ const FilterTask = ({ tasks, setDataFiltered }) => {
               value={dropTask}
               label="filtro"
               onChange={(e) => handleSelect(e.target.value)}
-              sx={{ minWidth: 200 }}
+              sx={{ minWidth: 150}}
             >
               <MenuItem value={1}>Todas</MenuItem>
               <MenuItem value={2}>Terminadas</MenuItem>
@@ -129,6 +152,7 @@ const FilterTask = ({ tasks, setDataFiltered }) => {
 
             </Select>
           </FormControl>
+       </div>
         
         <div>
           <Button variant='outlined' onClick={handleReset}>resetar</Button>

@@ -74,8 +74,8 @@ const Task = ({ data }) => {
       <Box component={Paper} className='task-container' >
 
         <div className={`header-container ${data.completed?'border-done':'border-pending'}`}>
-          <div className={data.completed?'color-status done':'color-status pending'}>
-          {data.completed?<CheckCircleOutlineIcon className='icon-done' sx={{display:{xs:'none',sm:'inherit',md:'inherit'}}}/>:<ReportGmailerrorredIcon className='icon-pending' sx={{display:{xs:'none',sm:'inherit',md:'inherit'}}}/>}
+          <div className='color-status'>
+          {data.completed?<CheckCircleOutlineIcon className='icon-done' sx={{display:{sm:'inherit',md:'inherit'}}}/>:<ReportGmailerrorredIcon className='icon-pending' sx={{display:{sm:'inherit',md:'inherit'}}}/>}
           </div>
           <div>{data.name}</div>
           {/* ONLY DESKTOP */}
