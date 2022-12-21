@@ -5,7 +5,7 @@
 
 
 ## About the project
-Esta es la api construida en laravel la cual es uno de los primeros proyectos del challenge, es necesaria para ejecutar el segundo proyecto.
+Esta es la app construida en React la cual es uno de los proyectos del challenge para Infocasas.
 
 ## Requisitos
 
@@ -24,4 +24,4 @@ Esta es la api construida en laravel la cual es uno de los primeros proyectos de
  
  2 - abrir la pestaña de comando en la ubicacion donde el repositorio fue instalado y ejecutar el comando ` npm install` en caso de haber errores con dependencias viejas usar `npm install --legacy-peer-deps`
  
- 3 - Configurar la api.
+ 3 - ingresar la ruta de la api en el archivo `src/data/`
