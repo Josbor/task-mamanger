@@ -4,8 +4,9 @@ import Task from '../components/Task'
 import { Fab, Tooltip } from '@mui/material'
 import AddIcon from '@mui/icons-material/Add';
 import useModal from '../hooks/useModal';
-import Formulario from '../components/formulario';
-import FilterTask from '../hooks/FilterTask';
+import Formulario from '../components/Formulario';
+import FilterTask from '../components/FilterTask';
+import HeaderTasks from '../components/headerTasks';
 
 
 const Home = () => {
@@ -25,7 +26,10 @@ const Home = () => {
     return (
         
     <div className="App">
+         <div className='header-home-container'>
+          <HeaderTasks data={tasksList}/>
           <FilterTask tasks={tasksList} setDataFiltered={setDataFiltered} dataFiltered={dataFiltered}/>
+          </div> 
         
         <div className='container-tasks'>
 
