@@ -65,19 +65,20 @@ const Formulario = ({ setModal, data }) => {
 
             id="outlined-disabled"
             label="Titulo"
-            defaultValue={nameTask}
+            value={nameTask}
             fullWidth
-            onChange={e => setNameTask(e.target.value)}
+            onChange={e =>{e.target.value.length<50&& setNameTask(e.target.value)}}
           />
           <TextField
             id="outlined-disabled"
             label="Description"
-            defaultValue={descriptionTask}
+            value={descriptionTask}
             multiline
             minRows={3}
             maxRows={3}
             fullWidth
-            onChange={e => setDescriptionTask(e.target.value)}
+            onChange={e => {e.target.value.length<190&&setDescriptionTask(e.target.value)}}
+         
 
           />
           <Button fullWidth

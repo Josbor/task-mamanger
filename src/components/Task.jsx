@@ -1,6 +1,6 @@
 import { Box, IconButton, ListItemIcon, ListItemText, Menu, MenuItem, Paper, SpeedDial, SpeedDialAction, SpeedDialIcon } from '@mui/material'
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import React from 'react'
+import React, { useState } from 'react'
 import useModal from '../hooks/useModal';
 import DeleteIcon from '@mui/icons-material/Delete';
 import BorderColorIcon from '@mui/icons-material/BorderColor';
@@ -14,10 +14,12 @@ import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import Tooltip from '@mui/material/Tooltip';
 import { editTask } from '../data/data';
+import TaskInfo from './TaskInfo';
 
 const Task = ({ data }) => {
   const [setModaltask, ModalTask] = useModal()
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [TypeAction, setTypeAction] = useState('form')
   const open = Boolean(anchorEl);
   const {destroyTask,getTask}=useStoreControl()
   const handleClick = (event) => {
@@ -27,7 +29,8 @@ const Task = ({ data }) => {
     setAnchorEl(null);
   };
 
-  const handleModal = () => {
+  const handleTaskInfo = () => {
+    setTypeAction('info')
     setModaltask(true)
   }
 
@@ -111,7 +114,7 @@ const Task = ({ data }) => {
               }}
             >
                {/* VER  */}
-              <MenuItem onClick={handleClose}>
+              <MenuItem onClick={()=>{handleClose();handleTaskInfo()}}>
                 
                 <ListItemIcon>
                  <Tooltip title='ver contenido de la tarea'>
@@ -121,7 +124,7 @@ const Task = ({ data }) => {
                 {/* <ListItemText>detalles</ListItemText> */}
               {/* EDITAR */}
               </MenuItem>
-              <MenuItem onClick={()=>{handleClose();setModaltask()}}>
+              <MenuItem onClick={()=>{handleClose();setTypeAction('form');setModaltask()}}>
              
                 <ListItemIcon>
                 <Tooltip title='editar Tarea'>
@@ -162,7 +165,7 @@ const Task = ({ data }) => {
         <div className='description-task'>{data.description}</div>
 
       </Box>
-      <ModalTask Component={Formulario} propsComponent={data}></ModalTask>
+      <ModalTask Component={TypeAction=='form'?Formulario:TaskInfo} propsComponent={data}></ModalTask>
     </>
   )
 }
