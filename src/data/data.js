@@ -2,7 +2,7 @@ import axios from "axios";
 import config from './configApi.json'
 
 const url =axios.create(
-    {baseURL:"http://127.0.0.1:8000/api/"}
+    {baseURL:config.baseUrl}
 )
 
 
