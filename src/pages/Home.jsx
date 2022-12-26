@@ -6,7 +6,7 @@ import AddIcon from '@mui/icons-material/Add';
 import useModal from '../hooks/useModal';
 import Formulario from '../components/Formulario';
 import FilterTask from '../components/FilterTask';
-import HeaderTasks from '../components/headerTasks';
+import HeaderTasks from '../components/HeaderTasks';
 
 
 const Home = () => {
