@@ -2,7 +2,7 @@ import axios from "axios";
 import config from './configApi.json'
 
 const url =axios.create(
-    {baseURL:config.baseUrl}
+    {baseURL:config.baseUrl+'/api/'}
 )
 
 
